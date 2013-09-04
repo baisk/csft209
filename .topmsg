@@ -1,6 +1,6 @@
 From: baisk <buaagaowei@gmail.com>
-Subject: [PATCH] t/cs_fix
+Subject: [PATCH] t/cs_pyconf
 
-patch some fix on coreseek
+use python to conf 
 
 Signed-off-by: baisk <buaagaowei@gmail.com>
