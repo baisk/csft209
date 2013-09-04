@@ -1,6 +1,6 @@
 From: gaowei <gaowei@gaowei-Rev-1-0.(none)>
-Subject: [PATCH] t/coreseek
+Subject: [PATCH] t/cs_fix
 
-start patch beased on sphinx origrin source
+fix some bug for new feather
 
 Signed-off-by: gaowei <gaowei@gaowei-Rev-1-0.(none)>
