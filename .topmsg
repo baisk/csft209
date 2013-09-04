@@ -1,6 +1,6 @@
 From: baisk <buaagaowei@gmail.com>
-Subject: [PATCH] t/cs_mmseg
+Subject: [PATCH] t/cs_seg
 
-coreseek mmseg token
+coreseek tok
 
 Signed-off-by: baisk <buaagaowei@gmail.com>
