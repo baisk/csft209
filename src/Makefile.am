@@ -8,8 +8,12 @@ if USE_PYTHON
 SRC_PYTHONLAYER = py_helper.cpp py_layer.cpp py_source.cpp 
 endif
 
+if USE_MMSEG
+SRC_MMSEG = tokenizer_zhcn.cpp
+endif
+
 noinst_LIBRARIES = libsphinx.a
-libsphinx_a_SOURCES = $(SRC_SPHINX) $(SRC_PYTHONLAYER) 
+libsphinx_a_SOURCES = $(SRC_SPHINX) $(SRC_MMSEG) $(SRC_PYTHONLAYER)
 
 bin_PROGRAMS = indexer searchd search spelldump indextool
 noinst_PROGRAMS = tests
@@ -28,5 +32,6 @@ extract-version:
 
 AM_CPPFLAGS = -DSYSCONFDIR="\"$(sysconfdir)\"" -DDATADIR="\"$(localstatedir)/data\""
 
-COMMON_LIBS = libsphinx.a $(LIBSTEMMER_LIBS) $(MYSQL_LIBS) $(PGSQL_LIBS) 
+COMMON_LIBS = libsphinx.a $(LIBSTEMMER_LIBS) $(MYSQL_LIBS) $(PGSQL_LIBS) $(MMSEG_LIBS)
+
 LDADD = $(COMMON_LIBS)
