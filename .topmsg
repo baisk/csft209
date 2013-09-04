@@ -1,6 +1,6 @@
 From: baisk <buaagaowei@gmail.com>
-Subject: [PATCH] t/cs_pysource
+Subject: [PATCH] t/cs_py
 
-pysource, build index by py code
+coreseek py, include pyconf and pysource
 
 Signed-off-by: baisk <buaagaowei@gmail.com>
