@@ -66,7 +66,7 @@ int main ( int argc, char ** argv )
 			"\t\t\t\tdump hits for given keyword\n"
 			"--check <INDEXNAME>\t\tperform index consistency check\n"
 			"--htmlstrip <INDEXNAME>\t\tfilter stdin usng HTML stripper settings\n"
-			"\t\t\t\tfor a given index (taken from sphinx.conf)\n"
+			"\t\t\t\tfor a given index (taken from csft.conf)\n"
 			"--optimize-rt-klists <INDEXNAME>\n"
 			"\t\t\t\toptimize kill list memory use in RT index disk\n"
 			"\t\t\t\tchunks; either for a given index or --all\n"

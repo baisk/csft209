@@ -1,6 +1,6 @@
 From: baisk <buaagaowei@gmail.com>
-Subject: [PATCH] t/cs_fix
+Subject: [PATCH] t/cs_branding
 
-patch some fix on coreseek
+coreseek branding
 
 Signed-off-by: baisk <buaagaowei@gmail.com>
