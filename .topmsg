@@ -1,6 +1,6 @@
 From: baisk <buaagaowei@gmail.com>
-Subject: [PATCH] t/cs_fix
+Subject: [PATCH] t/cs_ictclas
 
-patch some fix on coreseek
+feather to seg by ictclas NLRIR
 
 Signed-off-by: baisk <buaagaowei@gmail.com>
