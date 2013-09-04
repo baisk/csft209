@@ -1,6 +1,6 @@
 From: baisk <buaagaowei@gmail.com>
-Subject: [PATCH] t/cs_fix
+Subject: [PATCH] t/cs_pysource
 
-patch some fix on coreseek
+pysource, build index by py code
 
 Signed-off-by: baisk <buaagaowei@gmail.com>

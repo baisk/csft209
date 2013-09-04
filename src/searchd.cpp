@@ -32,6 +32,8 @@
 #include <limits.h>
 #include <locale.h>
 
+#include "py_layer.h"
+
 #define SEARCHD_BACKLOG			5
 #define SPHINXAPI_PORT			9312
 #define SPHINXQL_PORT			9306
@@ -1354,6 +1356,11 @@ void Shutdown ()
 		sphRTDone();
 
 		sphShutdownWordforms ();
+
+#if USE_PYTHON
+		cftShutdown(); //clean up
+#endif
+
 	}
 
 	ARRAY_FOREACH ( i, g_dListeners )
@@ -6919,13 +6926,13 @@ void SearchHandler_c::RunSubset ( int iStart, int iEnd )
 		{
 			// search through specified local indexes
 			ParseIndexList ( tFirst.m_sIndexes, m_dLocal );
-
+			//CSphVector<CSphString>			m_dLocal;		///< local indexes for the current subset
 			// there should be no distributed indexes in multi-index query
 			int iDistFound = -1;
 			g_tDistLock.Lock();
 
 			ARRAY_FOREACH ( i, m_dLocal )
-				if ( g_hDistIndexes.Exists ( m_dLocal[i] ) )
+				if ( g_hDistIndexes.Exists ( m_dLocal[i]) )
 				{
 					iDistFound = i;
 					break;
@@ -15498,6 +15505,20 @@ int WINAPI ServiceMain ( int argc, char **argv )
 		sphFatal ( "'searchd' config section not found in '%s'", g_sConfigFile.cstr () );
 
 	const CSphConfigSection & hSearchdpre = hConf["searchd"]["searchd"];
+
+	/////////////////////
+	// init python layer
+	////////////////////
+	if ( hConf("python") && hConf["python"]("python") )
+	{
+		CSphConfigSection & hPython = hConf["python"]["python"];
+#if USE_PYTHON
+		if(!cftInitialize(hPython)) 
+			sphDie ( "Python layer's initiation failed.");
+#else
+		sphDie ( "Python layer defined, but search does Not supports python. used --enbale-python to recompile.");
+#endif
+	}	
 
 	////////////////////////
 	// stop running searchd
